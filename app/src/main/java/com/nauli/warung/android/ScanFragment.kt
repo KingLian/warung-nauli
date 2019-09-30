@@ -15,7 +15,6 @@ import android.view.SurfaceHolder
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.util.forEach
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.vision.Frame
@@ -88,7 +87,7 @@ class ScanFragment : Fragment() {
                 val cameraStateCallback = object : CameraDevice.StateCallback() {
                     override fun onOpened(camera: CameraDevice) {
                         val barcodeDetector = BarcodeDetector.Builder(context!!)
-                            .setBarcodeFormats(Barcode.DATA_MATRIX or Barcode.PRODUCT or Barcode.CODABAR or Barcode.QR_CODE)
+                            .setBarcodeFormats(Barcode.EAN_13 or Barcode.EAN_8 or Barcode.UPC_A or Barcode.UPC_E)
                             .build()
 
                         if (!barcodeDetector.isOperational) {
